@@ -1,0 +1,125 @@
+CREATE TABLE Customer
+(
+  Customer_ID INT NOT NULL,
+  Last_Name INT NOT NULL,
+  First_Name INT NOT NULL,
+  Street_Address INT NOT NULL,
+  City INT NOT NULL,
+  State INT NOT NULL,
+  Zip_Code INT NOT NULL,
+  Phone_Number INT NOT NULL,
+  E-Mail INT NOT NULL,
+  PRIMARY KEY (Customer_ID)
+);
+
+CREATE TABLE Movie
+(
+  Movie_ID INT NOT NULL,
+  Title INT NOT NULL,
+  DVD_ID INT NOT NULL,
+  Distributer_ID INT NOT NULL,
+  Distributer_Catalog_ID INT NOT NULL,
+  Genre INT NOT NULL,
+  Running_Length INT NOT NULL,
+  Year_Released INT NOT NULL,
+  Wholesale_Price INT NOT NULL,
+  Rental_Price INT NOT NULL,
+  PRIMARY KEY (Movie_ID)
+);
+
+CREATE TABLE Rental
+(
+  Rental_ID INT NOT NULL,
+  Customer_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  Rental_Date INT NOT NULL,
+  Return_Date INT NOT NULL,
+  Rental_Price INT NOT NULL,
+  Rental_Fee INT NOT NULL,
+  Taxes INT NOT NULL,
+  PRIMARY KEY (Rental_ID)
+);
+
+CREATE TABLE Distributer
+(
+  Distributer_ID INT NOT NULL,
+  Name INT NOT NULL,
+  PRIMARY KEY (Distributer_ID)
+);
+
+CREATE TABLE Distributer_DVD
+(
+  Distributer_ID INT NOT NULL,
+  DVD_ID INT NOT NULL,
+  PRIMARY KEY (Distributer_ID, DVD_ID)
+);
+
+CREATE TABLE Distributer_Video
+(
+  Distributer_ID INT NOT NULL,
+  Video_ID INT NOT NULL,
+  PRIMARY KEY (Distributer_ID, Video_ID)
+);
+
+CREATE TABLE DVD
+(
+  DVD_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  PRIMARY KEY (DVD_ID)
+);
+
+CREATE TABLE Video
+(
+  Video_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  PRIMARY KEY (Video_ID)
+);
+
+CREATE TABLE Actor
+(
+  Actor_ID INT NOT NULL,
+  Last_Name INT NOT NULL,
+  First_Name INT NOT NULL,
+  PRIMARY KEY (Actor_ID)
+);
+
+CREATE TABLE Director
+(
+  Director_ID INT NOT NULL,
+  Last_Name INT NOT NULL,
+  First_Name INT NOT NULL,
+  PRIMARY KEY (Director_ID)
+);
+
+CREATE TABLE Academy_Award
+(
+  Academy_Award_ID INT NOT NULL,
+  Year INT NOT NULL,
+  Category INT NOT NULL,
+  Winner INT NOT NULL,
+  PRIMARY KEY (Academy_Award_ID)
+);
+
+CREATE TABLE Actor_Movies
+(
+  AM_ID INT NOT NULL,
+  Actor_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  PRIMARY KEY (AM_ID)
+);
+
+CREATE TABLE Director_Movie
+(
+  DM_ID INT NOT NULL,
+  Director_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  PRIMARY KEY (DM_ID)
+);
+
+CREATE TABLE Award_Movie
+(
+  AAM_ID INT NOT NULL,
+  Academy_Award_ID INT NOT NULL,
+  Movie_ID INT NOT NULL,
+  PRIMARY KEY (AAM_ID)
+);
